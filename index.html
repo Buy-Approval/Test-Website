@@ -4,7 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
-    <link rel="stylesheet" href="css/styles.css"> <!-- Link to external CSS -->
+    <style>
+        /* General styling */
+        body {
+            color: black;
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        header, footer {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        main {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 0px 0;
+        }
+
+        h2, h3, h4 {
+            color: black;
+        }
+
+        /* List styling */
+        ul {
+            margin-left: 20px;
+            list-style-type: none; /* Removes bullet points */
+        }
+
+        /* Styling for hidden class */
+        .hidden {
+            display: none;
+        }
+
+        /* Make <h4> elements clickable */
+        h4 {
+            cursor: pointer;
+            color: black;
+            transition: color 0.3s ease;
+        }
+
+        h4:hover {
+            color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* General link styling */
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Optional: Styling on hover */
+        a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        /* Dropdown menu styling */
+        .dropdown-title {
+            cursor: pointer;
+            color: #007bff;
+            transition: color 0.3s ease;
+        }
+
+        .dropdown-title:hover {
+            color: #0056b3;
+        }
+
+        /* Nested dropdown menu */
+        .dropdown-menu {
+            margin-left: 20px; /* Indent the dropdown items */
+        }
+    </style>
 </head>
 <body>
 
@@ -50,11 +125,10 @@
         <h4><u>Projects I have made are:</u></h4>
         <ul class="hidden">
             <li>A simple calculator in Python</li>
-            <li>A zombie game in <a href="https://scratch.mit.edu/projects/723131919/" target="_blank"><u>Scratch</a></u></a></li>
+            <li>A zombie game in <a href="https://scratch.mit.edu/projects/723131919/" target="_blank"><u>Scratch</u></a></li>
             <li>Also, this website</li>
         </ul>
     </section>
-    
 
     <section>
         <h4><u>More things about me apart from computer-related stuff are:</u></h4>
@@ -72,6 +146,19 @@
     </ul>
 </footer>
 
-<script src="js/script.js"></script> <!-- Link to external JS -->
+<script>
+    // JavaScript to toggle visibility of lists
+    document.querySelectorAll('h4').forEach(function(header) {
+        header.addEventListener('click', function() {
+            // Find the next sibling element which is the <ul> (or the list)
+            const list = header.nextElementSibling;
+            if (list) {
+                // Toggle the 'hidden' class on the <ul>
+                list.classList.toggle('hidden');
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
